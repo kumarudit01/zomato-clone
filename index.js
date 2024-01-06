@@ -34,18 +34,25 @@ const main = async () => {
             let email = req.body.email
             let password = req.body.password
             console.log("Requested Data:", req.body)
+
+
             //Check the email and password values in my database
-            let result = await collection.findOne({ email: email })
-            console.log("the data from database", result)
-            if (result === null) {
+            let feedback = await collection.findOne({ email: email })
+            console.log("the data from database", feedback)
+
+
+            if (feedback !== null) {
                 res.json({ "message": "Email is not Registered" })
                 return
             }
-            //if the email and password match
-            if (result.password !== password) {
-                res.json({ "message": "credential is not valid" })
-                return
-            }
+           // insert the data in the database
+        const result = await collection.insertOne({
+            username: username,
+            email: email,
+            password: password,
+          });
+  
+          console.log("The feedback i get from database: ", result);
             //send the respone login success otherwise credintails are not valid
             res.send({ "message": "welcome to zomato" })
         })
@@ -57,20 +64,21 @@ const main = async () => {
                 const username = request.body.username
                 const email = request.body.email
                 const password = request.body.password
-                // fetch the data  from the request
-                const result =await collection.insertOne({
-                    username:username,
-                    email:email,
-                    password:password
-                })
-                console.log("The Features i get from the Database:",result)
+                
                 // Checking if the user email is already exists or not
                 const feedback =await collection.findOne ({email:email})
                 if (feedback !== null)
                 {
                     response.json({"message":"Email Is Already Exists"})
                     return
-                }                
+                } 
+                // fetch the data  from the request
+                const result =await collection.insertOne({
+                    username:username,
+                    email:email,
+                    password:password
+                })
+                console.log("The Features i get from the Database:",result)    
 
                 // insert the data in the database
                 // data add succesfully otherwise
