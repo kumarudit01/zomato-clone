@@ -6,7 +6,11 @@
     box-sizing: border-box;
 
 }
-
+@layer components{
+    .brand{
+        background-color: #EF4444;
+    }
+}
 .top {
     position: relative;
 }
