@@ -4,11 +4,16 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 
 }
 @layer components{
     .brand{
         background-color: #EF4444;
+    }
+    .font
+    {
+        color: #EF4444;
     }
 }
 .top {
