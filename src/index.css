@@ -3,23 +3,43 @@
 @tailwind utilities;
 
 * {
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
-@layer components{
-    .brand{
-        background-color: #EF4444;
-    }
-    .font
-    {
-        color: #EF4444;
-    }
+@layer components {
+  .brand {
+    background-color: #ef4444;
+  }
+  .font {
+    color: #ef4444;
+  }
+}
+.container {
+  padding: 1rem 5rem;
 }
 .top {
-    position: relative;
+  position: relative;
 }
 
 .navcolor {
-    color: white;
+  color: white;
+}
+.galleryContainer {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-rows: repeat(2, minmax);
+}
+.galleryContainer > * {
+  width: 100%;
+  height: 100%;
+}
+.galleryContainer > *:nth-of-type(1) {
+  grid-column: 1/4;
+  grid-row: 1/3;
+}
+.galleryContainer > *:nth-of-type(3) {
+  grid-row-start: 2;
+}
+.galleryContainer > *:nth-of-type(4) {
+  grid-row: 1/3;
 }

@@ -12,9 +12,9 @@ const Navbar = () => {
                 </div>
                 <div className="hidden sm:block font-medium text-sm">Get The App</div>
                 <ul className="hidden sm:flex gap-9">
-                    <li className="text-lg"><Link to ="">Investor Relation</Link></li>
-                    <li className="text-lg"><Link to ="">Add Restaurant</Link></li>
-                    <li className="text-lg"><Link to ="/login">Login</Link></li>
+                    <li className="text-lg"><Link to="/">Investor Relation</Link></li>
+                    <li className="text-lg"><Link to="/">Add Restaurant</Link></li>
+                    <li className="text-lg"><Link to="/login">Login</Link></li>
                     <li className="text-lg"><Link to="/register">Sign Up</Link></li>
                 </ul>
             </nav>

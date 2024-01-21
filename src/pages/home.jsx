@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Service from "../components/service";
-// import Navbar from "./components/navbar";
+import Navbar from "../components/navbar";
 // import bgimage from "./components/backgroundwall/bgimage";
 import '../components/backgroundwall/bgimage.css'
+import { Link } from "react-router-dom";
 
 
 const Card = (props)=>
@@ -98,10 +99,12 @@ const Home = () => {
         ) : (
           result.map((item) => {
             return (
+              <Link to={`/resturant/${item.rname}`}>
               <Card
                 rname={item.rname}
                 price={item.price}
               />
+              </Link>
             );
           })
         )}
