@@ -22,10 +22,41 @@ const main = async () => {
         console.log("Database is Connecte")
         const db = client.db(dbName)
         const collection = db.collection(collectionName)
+        const foodCollection =db.collection("zomato-items")
         //Get
         app.get("/", (req, res) => {
             res.send("server is live!")
         })
+
+
+        // For Finding a some data from the database
+        app.get("/resturants",async(request,response)=>{
+            try{
+                // fetch all the documents from the collection
+                const result =await foodCollection.find().toArray()
+                console.log(result)
+                response.json(result)
+            } catch(e)
+            {
+                console.log("Error Is Occured in /product route:",e)
+            }
+        })
+
+        app.get("/resturants/:resturantName",async(request,response)=>
+        {
+            try{
+                console.log(request.params)
+                const regx= new RegExp(`^${request.params.resturantName}`,"i")
+                // Find The Doc in Db
+                const result = await foodCollection.find({"rname": {$regex:regx}})
+                .toArray()
+                response.json(result)
+            }
+            catch(e){
+                console.log("Error Is Occured:",e)
+            }
+        })
+
         //Post
         //Login
         app.post("/login", async (req, res) => {
