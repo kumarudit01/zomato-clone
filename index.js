@@ -13,7 +13,7 @@ const client = new MongoClient(uri)
 app.use(cors())
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
-const port = 5000
+const port = 8000
 const dbName = "zomato"
 const collectionName = "users"
 const main = async () => {
