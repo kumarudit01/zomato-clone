@@ -38,7 +38,7 @@ const main = async () => {
     });
 
     // For finding some data from the database
-    app.get("/restaurants", async (request, response) => {
+    app.get("/resturants", async (request, response) => {
       try {
         // fetch all the documents from the collection
         const result = await foodCollection.find().toArray()
@@ -50,11 +50,11 @@ const main = async () => {
       }
     })
 
-    app.get("/restaurants/:restaurantName", async (request, response) => {
+    app.get("/resturants/:resturantName", async (request, response) => {
       try {
         console.log(request.params)
 
-        const regx = new RegExp(`^${request.params.restaurantName}`, "i")
+        const regx = new RegExp(`^${request.params.resturantName}`, "i")
 
         // find the doc in db
         const result = await foodCollection.find({ "rname": { $regex: regx } }).toArray()
