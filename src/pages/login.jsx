@@ -12,7 +12,7 @@ const Login = () => {
 
       console.log(email, password);
 
-      const response = await axios("http://localhost:5000/login", {
+      const response = await axios("https://zomato-clone-eight-rho.vercel.app/login", {
         method: "post",
         headers: {
           "Content-Type": "application/json",

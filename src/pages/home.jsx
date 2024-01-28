@@ -35,12 +35,12 @@ const Home = () => {
         try{
             if(data===""){
                 // show all data
-            const res = await axios.get(`http://localhost:5000/resturants`)
+            const res = await axios.get(`https://zomato-clone-eight-rho.vercel.app/resturants`)
             console.log("The Response : ", res)    
             setResult(res.data)
             return
             }
-            const res = await axios.get(`http://localhost:5000/resturants/${data}`)
+            const res = await axios.get(`https://zomato-clone-eight-rho.vercel.app/resturants/${data}`)
             console.log("The Response:",res)
             setResult(res.data)
         } catch(e){

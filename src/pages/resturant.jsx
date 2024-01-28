@@ -9,7 +9,7 @@ const Resturant = () => {
   console.log(params);
   const searchResturant = async (data) => {
     try {
-      const res = await axios.get(`http://localhost:5000/resturants/${data}`);
+      const res = await axios.get(`https://zomato-clone-eight-rho.vercel.app/resturants/${data}`);
       console.log("The Response:", res);
       setResult(res.data[0]);
     } catch (e) {
